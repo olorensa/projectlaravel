@@ -17,6 +17,7 @@
                     {{ __('Ini adalah halaman User') }}
                 </div>
             </div>
+            </div>
         </div>
     </div>
 </div>

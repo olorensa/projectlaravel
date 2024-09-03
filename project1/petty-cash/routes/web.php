@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\PemasukanController;
+use App\Http\Controllers\PengeluaranController;
+
 
 
 Route::get('/', function () {
@@ -20,3 +22,5 @@ Route::get('home_user', function(){
 
 
 Route::resource('pemasukan', PemasukanController::class);
+
+Route::resource('pengeluaran', PengeluaranController::class);

@@ -5,20 +5,25 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Input Data Pemasukan') }}</div>
+                <div class="card-header">{{ __('Input Data Pengeluaran') }}</div>
 
-                <form action="{{route('pemasukan.update', $data->id)}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('pengeluaran.update', $data->id)}}" method="post" enctype="multipart/form-data">
                     @csrf
                     {{method_field('PUT')}}
                     <div class="card-body">
                         <div class="form-group p-3"></div>
-                        <label>Sumber Dana/Pemasukan</label>
-                        <input type="text" name="sumber_pemasukan" value="{{$data->sumber_pemasukan}}" required class="form-control">
+                        <label>Pemohon</label>
+                        <input type="text" name="pemohon" value="{{$data->pemohon}}" required class="form-control">
                     </div>
                     <div class="card-body">
                         <div class="form-group p-3"></div>
-                        <label>Tanggal masuk</label>
-                        <input type="date" name="tanggal_masuk" value="{{$data->tanggal_masuk}}" required class="form-control">
+                        <label>Kebutuhan</label>
+                        <input type="text" name="kebutuhan" value="{{$data->kebutuhan}}" required class="form-control">
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group p-3"></div>
+                        <label>Tanggal Pengeluaran</label>
+                        <input type="date" name="tanggal_pengeluaran" value="{{$data->tanggal_pengeluaran}}" required class="form-control">
                     </div>
                     <div class="card-body">
                         <div class="form-group p-3"></div>
@@ -28,7 +33,7 @@
                     <div class="card-body">
                         <div class="form-group p-3"></div>
                         <label>Bukti Transaksi</label>
-                        <input type="file" name="bukti_transaksi" value="{{$data->bukti_transaksi}}" required class="form-control">
+                        <input type="file" name="bukti_transaksi" value="{{$data->bukti_transaksi}}" class="form-control">
                     </div>
                     <div class="card-body">
                         <div class="form-group p-3"></div>

@@ -2,33 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pemasukan;
+use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
 
-class PemasukanController extends Controller
+class PengeluaranController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-
-     public function __construct()
-     {
-         $this->middleware('auth');
-     }
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
-        $data = Pemasukan::all();
-        return view('pemasukan.index', compact('data'));
+        $data = Pengeluaran::all();
+        return view('pengeluaran.index', compact('data'));
     }
-
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('pemasukan.create');
+        return view('pengeluaran.create');
     }
 
     /**
@@ -46,11 +44,8 @@ class PemasukanController extends Controller
             $input['bukti_transaksi'] = $nama;
         }
 
-        Pemasukan::create($input);
-        return redirect()->route('pemasukan.index');
-
-        // dd($input);
-
+        Pengeluaran::create($input);
+        return redirect()->route('pengeluaran.index');
     }
 
     /**
@@ -58,18 +53,17 @@ class PemasukanController extends Controller
      */
     public function show($id)
     {
-        $data = Pemasukan::find($id);
-        return view('pemasukan.detail', compact('data'));
+        $data = Pengeluaran::find($id);
+        return view('pengeluaran.detail', compact('data'));
     }
 
-    
     /**
      * Show the form for editing the specified resource.
      */
     public function edit($id)
     {
-        $data = Pemasukan::find($id);
-        return view('pemasukan.edit', compact('data'));
+        $data = Pengeluaran::find($id);
+        return view('pengeluaran.edit', compact('data'));
     }
 
     /**
@@ -78,7 +72,7 @@ class PemasukanController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->all();
-        $data = Pemasukan::find($id);
+        $data = Pengeluaran::find($id);
             if($request->hasFile('bukti_transaksi'))
             {
                 $path_simpan='public/images/transaksi';
@@ -89,21 +83,16 @@ class PemasukanController extends Controller
             }
     
             $data->update($input);
-            return redirect()->route('pemasukan.index');
-    
-            // dd($input);
-    
-        }
-    
+            return redirect()->route('pengeluaran.index');
+    }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy($id)
     {
-        $data = Pemasukan::find($id);
+        $data = Pengeluaran::find($id);
         $data->delete();
-        return redirect()->route('pemasukan.index');
+        return redirect()->route('pengeluaran.index');
     }
 }
-

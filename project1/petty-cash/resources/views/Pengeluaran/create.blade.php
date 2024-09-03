@@ -5,19 +5,24 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Input Data Pemasukan') }}</div>
+                <div class="card-header">{{ __('Input Data Pengeluaran') }}</div>
 
-                <form action="{{route('pemasukan.store')}}" method="post">
+                <form action="{{route('pengeluaran.store')}}" method="post">
                     @csrf
                     <div class="card-body">
                         <div class="form-group p-3"></div>
-                        <label>Sumber Dana/Pemasukan</label>
-                        <input type="text" name="sumber_pemasukan" required class="form-control">
+                        <label>Pemohon</label>
+                        <input type="text" name="pemohon" required class="form-control">
                     </div>
                     <div class="card-body">
                         <div class="form-group p-3"></div>
-                        <label>Tanggal masuk</label>
-                        <input type="date" name="tanggal_masuk" required class="form-control">
+                        <label>Kebutuhan</label>
+                        <input type="text" name="kebutuhan" required class="form-control">
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group p-3"></div>
+                        <label>Tanggal keluar</label>
+                        <input type="date" name="tanggal_pengeluaran" required class="form-control">
                     </div>
                     <div class="card-body">
                         <div class="form-group p-3"></div>
